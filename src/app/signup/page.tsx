@@ -27,6 +27,13 @@ export default function SignupPage() {
         value={user.username}
         onChange={(e) => setUser({...user, username: e.target.value})}
         placeholder="username" />
+        <label htmlFor="email">email:</label>
+        <input className="bg-gray-600 rounded-md p-2"
+        type="text" 
+        id="email"
+        value={user.email}
+        onChange={(e) => setUser({...user, email: e.target.value})}
+        placeholder="email" />
     </div>
   )
 }
