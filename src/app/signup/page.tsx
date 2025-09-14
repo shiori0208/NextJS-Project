@@ -6,6 +6,12 @@ import { Axios } from "axios";
 
 
 export default function SignupPage() {
+  const [user, setUser] = React.useState({
+    email: "",
+    password: "",
+    username: ""
+  })
+
   return (
     <div className="flex">
       <h1 className="justify-center text-amber-200 text-2xl">
