@@ -1,33 +1,15 @@
-export default function SignUpPage() {
-    return (
-       <div className="min-h-screen flex items-center justify-center bg-[#E2C99E]"> 
-  <div className="bg-[#FFF]/80 rounded-2xl shadow-xl p-8 w-full max-w-md border-2 border-[#414B9E]">
-    <h1 className="text-3xl font-bold text-center text-[#414B9E] mb-6">Sign Up</h1>
-    <form>
-      <div className="mb-4">
-        <label className="block text-sm text-[#AA74A0] mb-2" htmlFor="email">Email</label> 
-        <input
-          className="w-full px-4 py-2 rounded-lg bg-[#9792CB] border border-[#414B9E] text-[#414B9E] placeholder-[#AA74A0] focus:outline-none focus:ring-2 focus:ring-[#414B9E] transition"
-          type="email"
-          id="email"
-          required />
-      </div>
-      <div className="mb-6">
-        <label className="block text-sm text-[#AA74A0] mb-2" htmlFor="password">Password</label>
-        <input
-          className="w-full px-4 py-2 rounded-lg bg-[#9792CB] border border-[#414B9E] text-[#414B9E] placeholder-[#AA74A0] focus:outline-none focus:ring-2 focus:ring-[#414B9E] transition"
-          type="password"
-          id="password"
-          required />
-      </div>
-      <button
-        type="submit"
-        className="w-full py-2 bg-[#852736] hover:bg-[#AA74A0] text-white font-semibold rounded-lg transition"> 
-        Make Account
-      </button>
-    </form>
-  </div>
-</div>
+"use client" ;
+import Link from "next/link";
+import React from "react";
+import { useRouter } from "next/router";
 
-    )
+
+export default function SignupPage() {
+  return (
+    <div className="flex">
+      <h1 className="justify-center text-amber-200 text-2xl">
+        SignUp
+      </h1>
+    </div>
+  )
 }
