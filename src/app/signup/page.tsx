@@ -12,9 +12,13 @@ export default function SignupPage() {
     username: ""
   })
 
+  const onSignup = async () => {
+
+  }
+
   return (
-    <div className="flex">
-      <h1 className="justify-center text-amber-200 text-2xl">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <h1 className="text-amber-200 text-2xl">
         SignUp
       </h1>
     </div>
