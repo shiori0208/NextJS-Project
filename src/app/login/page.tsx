@@ -1,37 +1,50 @@
-export default function LoginPage() {
-    return (
-       <div className="min-h-screen flex items-center justify-center bg-[#E2C99E]"> 
-  <div className="bg-[#FFF]/80 rounded-2xl shadow-xl p-8 w-full max-w-md border-2 border-[#414B9E]">
-    <h1 className="text-3xl font-bold text-center text-[#414B9E] mb-6">Login</h1>
-    <form>
-      <div className="mb-4">
-        <label className="block text-sm text-[#AA74A0] mb-2" htmlFor="email">Email</label> 
-        <input
-          className="w-full px-4 py-2 rounded-lg bg-[#9792CB] border border-[#414B9E] text-[#414B9E] placeholder-[#AA74A0] focus:outline-none focus:ring-2 focus:ring-[#414B9E] transition"
-          type="email"
-          id="email"
-          required />
-      </div>
-      <div className="mb-6">
-        <label className="block text-sm text-[#AA74A0] mb-2" htmlFor="password">Password</label>
-        <input
-          className="w-full px-4 py-2 rounded-lg bg-[#9792CB] border border-[#414B9E] text-[#414B9E] placeholder-[#AA74A0] focus:outline-none focus:ring-2 focus:ring-[#414B9E] transition"
-          type="password"
-          id="password"
-          required />
-      </div>
-      <button
-        type="submit"
-        className="w-full py-2 bg-[#852736] hover:bg-[#AA74A0] text-white font-semibold rounded-lg transition"> 
-        Sign In
-      </button>
-    </form>
-    <p className="mt-6 text-center text-sm text-[#852736]">
-      Forgot your password?
-      <a href="#" className="underline text-[#414B9E] hover:text-[#9792CB]">Click here</a>
-    </p>
-  </div>
-</div>
+"use client" ;
+import Link from "next/link";
+import React from "react";
+import { useRouter } from "next/router";
+import { Axios } from "axios";
 
-    )
+
+export default function LoginPage() {
+  const [user, setUser] = React.useState({
+    email: "",
+    password: "",
+    username: ""
+  })
+
+  const onLogin = async () => {
+  }
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <h1 className="text-blue-200 text-2xl">
+        Login </h1>
+        <hr />
+
+        <label htmlFor="email">Email:</label>
+        <input className="bg-gray-500 rounded-md p-2"
+        type="text" 
+        id="email"
+        value={user.email}
+        onChange={(e) => setUser({...user, email: e.target.value})}
+        placeholder="email" />
+
+        <label htmlFor="password">Password:</label>
+        <input className="bg-gray-500 rounded-md p-2"
+        type="text" 
+        id="password"
+        value={user.password}
+        onChange={(e) => setUser({...user, password: e.target.value})}
+        placeholder="password" />
+        <br />
+        
+        <button 
+        onClick={onLogin}
+        className="p-2 border border-gray-400 rounded-lg mb-4 bg-blue-500 hover:bg-blue-700">
+          Sign Up
+        </button>
+        <Link className="underline text-blue-300" href="/signup"> Don't have an account? Sign Up
+        </Link>
+    </div>
+  )
 }
