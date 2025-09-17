@@ -37,7 +37,6 @@ export default function LoginPage() {
         onChange={(e) => setUser({...user, password: e.target.value})}
         placeholder="password" />
         <br />
-        
         <button 
         onClick={onLogin}
         className="p-2 border border-gray-400 rounded-lg mb-4 bg-blue-500 hover:bg-blue-700">
