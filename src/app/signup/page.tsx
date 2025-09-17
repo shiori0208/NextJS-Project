@@ -1,12 +1,12 @@
 "use client" ;
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Axios } from "axios";
 
 
 export default function SignupPage() {
-  const router = useRouter(); 
+  
   const [user, setUser] = React.useState({
     email: "",
     password: "",
@@ -14,15 +14,32 @@ export default function SignupPage() {
   })
 
   const [buttonDisabled, setButtonDisabled] = React.useState(false); 
+  const [loading, setLoading] = React.useState(false); 
+
+  
 
   const onSignup = async () => {
-
+      try {
+        
+      } catch (error) {
+        
+      }
   }
+
+  useEffect(() => {
+      if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0) {
+        setButtonDisabled(false)
+      } else {
+        setButtonDisabled(true)
+      } 
+  }, [user])
+
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1 className="text-amber-200 text-2xl">
-        SignUp </h1>
+        {loading ? "Processing..." : "Sign Up"} </h1>
         <hr />
         <label htmlFor="username">Username:</label>
         <input className="bg-gray-600 rounded-md p-2"
@@ -49,7 +66,7 @@ export default function SignupPage() {
         <button 
         onClick={onSignup}
         className="p-2 border border-gray-400 rounded-lg mb-4 bg-amber-500 hover:bg-amber-700">
-          Sign Up
+          {buttonDisabled ? "Readying..." : "Sign Up!"}
         </button>
         <Link className="underline text-amber-200" href="/login"> Already have an account? Login
         </Link>
