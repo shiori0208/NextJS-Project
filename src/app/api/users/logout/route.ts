@@ -9,8 +9,10 @@ export async function GET() {
                 success: true
             }
         )
+        response.cookies.set("token", "", { httpOnly: true, expires: new Date(0) });
 
     } catch (error: any) {
-        return NextResponse.json({ message: error.message }, { status: 500 });  
+        return NextResponse.json({ message: error.message }, 
+        { status: 500 });  
     }
 }
