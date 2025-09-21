@@ -1,7 +1,7 @@
 "use client" ;
 import Link from "next/link";
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { set } from "mongoose";
@@ -16,8 +16,8 @@ export default function LoginPage() {
     username: ""
   })
 
-  const [buttonDisabled, setButtonDisabled] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [loading, setLoading] = useState(false);
 
  
   const onLogin = async () => {
@@ -72,7 +72,9 @@ export default function LoginPage() {
         <br />
         <button 
         onClick={onLogin}
-        className="p-2 border border-gray-400 rounded-lg mb-4 bg-blue-500 hover:bg-blue-700">
+        disabled={buttonDisabled || loading}
+        className="p-2 border border-gray-400 rounded-lg mb-4 bg-blue-500 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed max-w-sm" aria-disabled={buttonDisabled || loading}
+        aria-busy={loading}>
           {buttonDisabled? "Loading..." : "Login"}
         </button>
         <Link className="underline text-blue-300" href="/signup"> Don't have an account? Sign Up
