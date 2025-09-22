@@ -1,6 +1,8 @@
 export default function ProfilePage() 
 {
-    const logout = async () => {}
+    const logout = async () => {
+        
+    }
 
     return(
         <div className="flex flex-col items-center justify-center min-h-screen py-2 text-2xl">
