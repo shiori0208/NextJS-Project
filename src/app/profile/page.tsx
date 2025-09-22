@@ -2,16 +2,16 @@
 import axios from "axios";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import Router from "next/navigation";
 
 
 export default function ProfilePage() 
 {
-    const logout = () => {
+    const logout = async () => {
         try {
-            
+            const response = await axios.get("/api/users/logout");;
         } catch (error: any) {
             console.log(error.message);
-
             toast.error(error.message);
         }
     }
