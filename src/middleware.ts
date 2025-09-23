@@ -14,9 +14,13 @@ export function middleware(request: NextRequest) {
     if(isPublicPath && token) {
         return NextResponse.redirect(new URL('/profile', request.url));
     }
+
+    if(!isPublicPath && !token) {
+        return NextResponse.redirect(new URL('/login', request.url));
+    }
 }
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/', '/profile', '/login', '/signup']
+  matcher: ['/', '/profile', '/login', '/signup', '/profile/:path*'],
 }
