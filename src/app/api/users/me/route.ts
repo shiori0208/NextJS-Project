@@ -12,6 +12,11 @@ export async function GET(request: NextRequest) {
 
        const userID = await getDataFromToken(request);
        const user = User.findOne({_id: userID}).select("-password -isAdmin -isVerified");
+
+       return NextResponse.json({
+        message: "User exists in Database",
+        data: user
+       })
         
     } catch (error : any) {
         return NextResponse.json({message: error.message}, {status: 400});
