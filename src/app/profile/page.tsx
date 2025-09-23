@@ -34,7 +34,10 @@ export default function ProfilePage()
         <div className="flex flex-col items-center justify-center min-h-screen py-2 text-2xl">
             <h1>Profile</h1>
             <hr />
-            <p>Profile Pic</p>
+            <p>Profile Page</p>
+            <h3>{data === 'nothing!'? "NULL" : <Link 
+            href={`/profile/${data}`}>
+            </Link>}</h3>
 
             <hr />
 
